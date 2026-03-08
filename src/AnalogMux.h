@@ -1,6 +1,6 @@
 #pragma once
 #include <inttypes.h>
-#include <EasyPinD.h>
+#include <DrakePinD.hpp>
 
 template <uint8_t _count = 0, uint16_t _tick_time = 25> 
 class AnalogMux
@@ -14,7 +14,7 @@ class AnalogMux
 		AnalogMux(func_adc_req_t adc_req, func_result_t result, DPinTs... dpins) : 
 			_callback_adc_req(adc_req), 
 			_callback_result(result),
-			_digital{ EasyPinD(dpins.Port, {dpins.Pin, GPIO_MODE_OUTPUT_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_HIGH})... },
+			_digital{ DrakePinD(dpins, DrakePin::Output, DrakePin::Low)... },
 			_adc_value{}
 		{
 			static_assert(sizeof...(dpins) == _count, "Incorrect number of digital pins provided");
@@ -22,7 +22,7 @@ class AnalogMux
 
 		void Init()
 		{
-			for(EasyPinD &pin : _digital)
+			for(DrakePinD &pin : _digital)
 			{
 				pin.Init();
 			}
@@ -73,7 +73,7 @@ class AnalogMux
 		func_adc_req_t _callback_adc_req = nullptr;
 		func_result_t _callback_result = nullptr;
 		
-		EasyPinD _digital[_count];
+		DrakePinD _digital[_count];
 		uint16_t _adc_value[(1 << _count)];
 		
 		uint32_t _last_tick = 0;
