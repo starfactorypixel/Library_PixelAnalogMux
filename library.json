@@ -1,18 +1,18 @@
 {
-	"name": "PixelAnalogMux",
-	"description": "Easy analog mux control for STM32 HAL",
-	"version": "0.0.1",
-	"repository": {
-	  "type": "git",
-	  "url": "https://github.com/starfactorypixel/Library_PixelAnalogMux.git"
-	},
-	"headers": [
-	  "AnalogMux.h"
-	],
-	"dependencies": [
-	  {
-		"name": "PixelEasyPins",
-		"version": "https://github.com/starfactorypixel/Library_PixelEasyPins"
-	  }
-	]
-  }
+  "name": "PixelAnalogMux",
+  "description": "Easy analog mux control for STM32 HAL",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starfactorypixel/Library_PixelAnalogMux.git"
+  },
+  "headers": [
+    "AnalogMux.h"
+  ],
+  "dependencies": [
+    {
+      "name": "DrakePin",
+      "version": "https://github.com/starfactorypixel/Library_DrakePin"
+    }
+  ]
+}
