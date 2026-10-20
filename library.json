@@ -1,7 +1,7 @@
 {
   "name": "PixelAnalogMux",
   "description": "Easy analog mux control for STM32 HAL",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/starfactorypixel/Library_PixelAnalogMux.git"
